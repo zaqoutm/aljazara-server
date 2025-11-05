@@ -37,3 +37,6 @@ services:
 
       - ./tls/www-aljazara/conf:/etc/nginx/ssl/www-aljazara
       - ./tls/www-aljazara/data:/usr/share/nginx/html/letsencrypt/www-aljazara
+
+      - ./tls/app-aljazara/conf:/etc/nginx/ssl/app-aljazara
+      - ./tls/app-aljazara/data:/usr/share/nginx/html/letsencrypt/app-aljazara
