@@ -1,12 +1,12 @@
 # Server setup
 
-## Services
+#### Services
 
 - directus
 - postgres
 - nginx
 
-## Folders
+#### Folders
 
 - `site/` website files
 - `directus/` directus files
@@ -16,15 +16,18 @@
 
 ## Run
 
-First set the .env, example added `/env-examlpe`
+First set the .env variables.
+Example added `/env-examlpe`
 
 ```sh
-docker-compose up
+docker-compose up;
 ```
+
+<br>
 
 ## Generate TLS letsencrypt certificate
 
-Add .env file
+> Add .env file
 
 ```sh
 EMAIL=your-email
@@ -32,13 +35,7 @@ DOMAIN=your-domain.com
 CERTIFICATE_FOLDER=your-domain
 ```
 
-Generate dhparam
-
-```sh
-sudo openssl dhparam -out ./dhparam/dhparam.pem 2048
-```
-
-`docker compose up`
+> `docker compose up`
 
 ```
 #certbot-1  | Successfully received certificate.
@@ -46,5 +43,17 @@ sudo openssl dhparam -out ./dhparam/dhparam.pem 2048
 #certbot-1 exited with code 0
 ```
 
-Will find new folder `tls/domain/` created contains cerificates
-`conf/ data/ logs/`
+> Will find new folder `tls/domain/` created and contains cerificates
+
+```sh
+tls/domain/
+      conf/
+      data/
+      logs/
+```
+
+> Generate dhparam (Diffie-Hellman)
+
+```sh
+sudo openssl dhparam -out ./dhparam/dhparam-2048.pem 2048
+```
