@@ -31,5 +31,9 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./html:/var/www/html
       - ./tls/dhparam:/etc/nginx/dhparam
+
       - ./tls/aljazara/conf:/etc/nginx/ssl/aljazara
       - ./tls/aljazara/data:/usr/share/nginx/html/letsencrypt/aljazara
+
+      - ./tls/www-aljazara/conf:/etc/nginx/ssl/www-aljazara
+      - ./tls/www-aljazara/data:/usr/share/nginx/html/letsencrypt/www-aljazara
