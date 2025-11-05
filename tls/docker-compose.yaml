@@ -1,0 +1,20 @@
+services:
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/dhparam:/etc/nginx/dhparam
+
+      - ./${CERTIFICATE_FOLDER}/conf:/etc/nginx/ssl
+      - ./${CERTIFICATE_FOLDER}/data:/usr/share/nginx/html/letsencrypt
+
+  certbot:
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html/letsencrypt --email ${EMAIL} --agree-tos --no-eff-email -d ${DOMAIN}
+    volumes:
+      - ./${CERTIFICATE_FOLDER}/conf/:/etc/letsencrypt
+      - ./${CERTIFICATE_FOLDER}/data:/usr/share/nginx/html/letsencrypt
+      - ./${CERTIFICATE_FOLDER}/logs/:/var/log/letsencrypt
