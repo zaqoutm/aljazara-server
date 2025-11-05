@@ -1,0 +1,24 @@
+# postgres
+POSTGRES_USER: 'db-user'
+POSTGRES_PASSWORD: 'db-password'
+POSTGRES_DB: 'db-name'
+
+# directus
+DB_CLIENT: 'pg'
+DB_HOST: 'aljazara_database'
+DB_PORT: '5432'
+DB_DATABASE: 'db-name'
+DB_USER: 'db-user'
+DB_PASSWORD: 'db-password'
+
+SECRET: 'my-secret-key'
+ADMIN_EMAIL: 'admin-email'
+ADMIN_PASSWORD: 'admin-password'
+PUBLIC_URL: 'http://localhost:8055'
+
+CORS_ENABLED: true
+CORS_ORIGIN: '*'
+CORS_METHODS: GET,POST,PATCH,DELETE
+CORS_ALLOWED_HEADERS: 'http://localhost:8080'
+CORS_EXPOSED_HEADERS: Content-Range
+CORS_CREDENTIALS: false
