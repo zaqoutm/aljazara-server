@@ -1,13 +1,10 @@
 # Server setup
 
-```sh
-docker-compose up
-```
-
 ## Services
 
 - directus
 - postgres
+- nginx
 
 ## Folders
 
@@ -16,3 +13,43 @@ docker-compose up
 - `nginx/` configurations
 - `pg_data/` postgres data
 - `tls/` ssl certificates
+
+## Run
+
+First set the .env, example added `/env-examlpe`
+
+```sh
+docker-compose up
+```
+
+## Generate TLS letsencrypt certificate
+
+Add .env file
+
+```sh
+EMAIL=your-email
+DOMAIN=your-domain.com
+CERTIFICATE_FOLDER=your-domain
+```
+
+Generate dhparam
+
+```sh
+# in tls/ dir
+cd tls/nginx;
+```
+
+```sh
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+```
+
+`docker compose up`
+
+```
+#certbot-1  | Successfully received certificate.
+#...
+#certbot-1 exited with code 0
+```
+
+Will find new folder `tls/domain/` created contains cerificates
+`conf/ data/ logs/`
