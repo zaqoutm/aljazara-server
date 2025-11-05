@@ -1,17 +1,6 @@
 version: '3.8'
 
 services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    restart: unless-stopped
-    ports:
-      - 80:80
-      - 8080:8080
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./html:/var/www/html
-
   postgres:
     image: postgres:17
     container_name: aljazara_database
@@ -23,7 +12,6 @@ services:
   directus:
     image: directus/directus:11.13.0
     container_name: directus
-    restart: always
     depends_on:
       - postgres
     volumes:
@@ -31,3 +19,16 @@ services:
       - ./directus/extensions:/directus/extensions
       - ./directus/directus_data:/directus/database
     env_file: .env
+
+  nginx:
+    depends_on:
+      - directus
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./html:/var/www/html
