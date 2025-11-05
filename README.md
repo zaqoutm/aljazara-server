@@ -35,12 +35,7 @@ CERTIFICATE_FOLDER=your-domain
 Generate dhparam
 
 ```sh
-# in tls/ dir
-cd tls/nginx;
-```
-
-```sh
-sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+sudo openssl dhparam -out ./dhparam/dhparam.pem 2048
 ```
 
 `docker compose up`
