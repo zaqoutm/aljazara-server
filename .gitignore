@@ -1,3 +1,4 @@
 directus
 pg_data
 .env
+_test
