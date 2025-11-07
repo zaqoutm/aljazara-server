@@ -29,7 +29,7 @@ services:
       - 443:443
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./html:/var/www/html
+      - /root/aljazara/out:/var/www/html
       - ./tls/dhparam:/etc/nginx/dhparam
 
       - ./tls/aljazara/conf:/etc/nginx/ssl/aljazara
